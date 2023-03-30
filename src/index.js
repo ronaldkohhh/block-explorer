@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ChakraProvider } from "@chakra-ui/provider";
+import theme from "./theme";
+import { ColorModeScript } from "@chakra-ui/react";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
